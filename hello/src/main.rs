@@ -1,13 +1,10 @@
 fn main() {
-    let mut i = 0;
-    while i< 4 {
-        println!("{}", i);
-        i += 1;
-
-        if i == 3 {
-            println!("exit");
-            break
-        }
+    let mut i = 1;
+    match i {
+        0 => println!("0"),
+        1 | 2 => println!("1,2"),
+        3..=4 => println!("3,4"),
+        _ => println!("default")
     }
 
 }
