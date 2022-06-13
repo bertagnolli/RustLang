@@ -1,0 +1,1 @@
+This repository will contain projects created during my learning of Rust Language in preparation for the London Solana Hacker House
