@@ -1,13 +1,20 @@
 fn main() {
-    let arr = [0, 1, 2, 3]; // Known length
-    let slice = &arr[1 .. 3]; // A slice is a sement of an array. Syntax: let sliceName = &slicedArray[index .. <indexN-1>]; Last index isn't inclusive
-    // array above will return arr[1 to 2], 3 is not inclusive
-    borrowing_slice(arr, slice);
+    // String below is type string Literal, stored in Stack memory and immutable
+    let mut stringLiteral = "hello world";
+
+    // this string below is of type String and will be stored in heap memory. This String type can be altered if 
+    // it is set as 'mut'
+    let mut string = String::from("Hello World");
+
+    let slice = &string[.. 6];
+
+    println!("{}", slice);
+    println!("{}", &string);
+
+    string.push('a'); // pushes character a to string
+    string.push_str(" add string"); // adds " add string" to string
+    println!("{}", string); 
+    string = string.replace("add", "replace"); // replaces the word "add" with word "replace"
+    println!("{}", string); 
 }
 
-fn borrowing_slice(arr: [u8; 4], slice: &[u8]) {
-    println!("{:?}", arr);
-    println!("{:?}", slice);
-    println!("length: {}", slice.len());
-    println!("{} {}", slice[0], slice[1]);
-}
