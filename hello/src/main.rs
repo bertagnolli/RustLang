@@ -1,15 +1,21 @@
-fn main() {
-    let a: my_enum = my_enum::A;
-    let b: my_enum = my_enum::B(5);
-    let c: my_enum = my_enum::C{x:10, y:20};
-    println!("{:?}", a);
-    println!("{:?}", b);
-    println!("{:?}", c);
+fn divide(dividend: i32, divisor: i32) -> Option<i32> {
+    if dividend % divisor != 0 {
+        None
+    } else {
+        Some(dividend/divisor)
+    }
 }
 
-#[derive(Debug)] // This here is needed to print info inside structs and enums for debugging
-enum my_enum {
-    A,
-    B(u32),
-    C {x: u32, y: u32}
+fn main() {
+
+    let divide1: Option<i32> = divide(4,2);
+    let divide2: Option<i32> = divide(2,3);
+
+    // Unwrapping a 'Some' variant will extract the value wrapped
+    println!("{:?} unwraps to {}", divide1, divide1.unwrap());
+
+    // Unwrapping a 'None' variant will 'panic!' <- Rust for exception
+    println!("{:?} unwraps to {}", divide2, divide2.unwrap());
+    
 }
+  
